@@ -22,4 +22,4 @@ That's it! You can now install packages from this repository.
 > NOTE: Again, this repository *ONLY* provides glibc binaries; musl binaries are not available.
 
 # Credits
-- **[hyprland-void](https://github.com/Makrennel/hyprland-void)** for his nice build scripts
+- **[hyprland-void](https://github.com/Makrennel/hyprland-void)**: for its nice GitHub Actions scripts
