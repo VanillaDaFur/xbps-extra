@@ -3,16 +3,6 @@ This small project contains some packages that mainstream Void Linux repositorie
 
 > NOTE: I don't provide prebuilt musl packages, and not every template here builds with musl.
 
-Currently added packages
-
-| Package                 | Version             |
-| ----------------------- | ------------------- |
-| darkly                  | 0.5.22              |
-| vesktop                 | 1.5.8               |
-| ttf-jetbrains-mono-nerd | 3.4.0               |
-| proton-vpn-gtk-app      | 4.9.7               |
-
-
 # Installation 
 You can add this repository by creating a file at `/etc/xbps.d/10-extra-pkgs.conf` with following text:
 ```

@@ -1,17 +1,17 @@
-# Template file for 'ttf-jetbrains-mono-nerd'
-pkgname=ttf-jetbrains-mono-nerd
+# Template file for 'ttf-agave-nerd'
+pkgname=ttf-agave-nerd
 version=3.4.0
-revision=2
+revision=1
 hostmakedepends="tar xz"
 depends="font-util"
-short_desc="Patched font JetBrains Mono from nerd fonts library"
+short_desc="Patched font Agave from nerd fonts library"
 maintainer="VanillaDaFur <SnowyDaFur@protonmail.com>"
 license="MIT"
 
-font_file="JetBrainsMono"
+font_file="Agave"
 homepage="https://github.com/ryanoasis/nerd-fonts"
 distfiles="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${font_file}.tar.xz"
-checksum=ef552a3e638f25125c6ad4c51176a6adcdce295ab1d2ffacf0db060caf8c1582
+checksum=fe4879b0cff2d33d7fb08d1c8ba4e0cad9f44843644fe284fda1e89addf9c4ab
 
 do_install() {
 	mkdir -p "${DESTDIR}/usr/share/fonts/TTF"

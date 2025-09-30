@@ -1,17 +1,17 @@
-# Template file for 'ttf-jetbrains-mono-nerd'
-pkgname=ttf-jetbrains-mono-nerd
+# Template file for 'ttf-3270-nerd'
+pkgname=ttf-3270-nerd
 version=3.4.0
-revision=2
+revision=1
 hostmakedepends="tar xz"
 depends="font-util"
-short_desc="Patched font JetBrains Mono from nerd fonts library"
+short_desc="Patched font IBM 3270 from nerd fonts library"
 maintainer="VanillaDaFur <SnowyDaFur@protonmail.com>"
 license="MIT"
 
-font_file="JetBrainsMono"
+font_file="3270"
 homepage="https://github.com/ryanoasis/nerd-fonts"
 distfiles="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${font_file}.tar.xz"
-checksum=ef552a3e638f25125c6ad4c51176a6adcdce295ab1d2ffacf0db060caf8c1582
+checksum=6d9dd76987968e8a0b30d3ae4d18b8139d6ddf6cd53409272dbc596654ea38b1
 
 do_install() {
 	mkdir -p "${DESTDIR}/usr/share/fonts/TTF"
