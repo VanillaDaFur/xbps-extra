@@ -1,25 +1,24 @@
 # Template file for 'vesktop'
 pkgname=vesktop
-version=1.5.8
+version=1.6.1
 revision=1
 archs="x86_64"
 wrksrc="Vesktop-${version}"
-hostmakedepends="nodejs pnpm git"
+hostmakedepends="nodejs pnpm"
 depends="alsa-lib gtk+3 nss"
 short_desc="A standalone Electron-based Discord app with Vencord & improved Linux support"
 maintainer="Vanilla <SnowyDaFur@protonmail.com>"
 license="AGPL-3.0-only"
 homepage="https://github.com/Vencord/Vesktop"
 distfiles="https://github.com/Vencord/Vesktop/archive/refs/tags/v${version}.tar.gz"
-checksum="63fd9df5259e0cf404caf8005adde43b85fc81550aa303d103501a3c79599957"
+checksum="ba103cf8a9edef31eb78c1bc3d76e40151f84ff02b2da8fd2bc21a954841b523"
+
+if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
+  broken="This package does not support musl build."
+fi
 
 do_build() {
   export NODE_ENV=production
-
-	cp "$FILESDIR/afterPack.js" "${wrksrc/afterPack.js}"
-
-	sed -i '/"beforePack": "scripts\/build\/sandboxFix.js",/a\
-    	"afterPack": "afterPack.js",' "${wrksrc}/package.json"
 
   pnpm install
   pnpm build
@@ -31,11 +30,8 @@ do_install() {
   vmkdir usr/lib/vesktop
   cp -r dist/linux-unpacked/* ${DESTDIR}/usr/lib/vesktop/
 
-	# Icons
-	for i in 16 32 48 64 128 256 512 1024; do
-		vinstall "${wrksrc}/dist/.icon-set/icon_${i}.png" 644 \
-			usr/share/icons/hicolor/${i}x${i}/apps vesktop.png
-	done
+	# Icon
+	vinstall build/icon.svg 644 usr/share/icons/hicolor/scalable/apps/vesktop.svg
 
 	# Desktop file
 	vinstall "$FILESDIR/vesktop.desktop" 644 usr/share/applications

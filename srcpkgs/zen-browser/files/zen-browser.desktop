@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Zen Browser
+Terminal=false
+Exec=zen-browser %u
+Icon=zen-browser
+Type=Application
+Categories=Network;WebBrowser;

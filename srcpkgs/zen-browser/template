@@ -1,0 +1,43 @@
+# Template file for 'zen-browser'
+pkgname=zen-browser
+version=1.17.3b
+revision=1
+archs="x86_64 aarch64"
+hostmakedepends="tar xz"
+short_desc="Performance oriented Firefox-based web browser"
+maintainer="VanillaDaFur <SnowyDaFur@protonmail.com>"
+license="MPL-2.0"
+homepage="https://github.com/zen-browser/desktop"
+distfiles="https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-$XBPS_TARGET_MACHINE.tar.xz"
+depends="nss>=3.72 nspr>=4.32 desktop-file-utils hicolor-icon-theme pciutils"
+
+case "$XBPS_TARGET_MACHINE" in
+	x86_64)
+		checksum="af6769492f8179f30d681c17777de1da79a6b1a44c97a1cb6a0340d497b19eb7"
+		;;
+	aarch64)
+		checksum="f483fe8898fc39afcc236f0203ce1f8fc84aad35d2bfd1219a0548474fb238fd"
+		;;
+esac
+
+if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
+  broken="This package does not support musl build."
+fi
+
+do_install() {
+  # Extracting
+	vmkdir usr/lib/zen-browser
+	vcopy * usr/lib/zen-browser
+
+  # Linking binary to a /usr/bin directory
+	vmkdir usr/bin/
+	ln -sf ../lib/zen-browser/zen "${DESTDIR}"/usr/bin/zen-browser
+
+  # Installing default icons
+	for i in 16x16 32x32 48x48 64x64 128x128; do
+		vinstall browser/chrome/icons/default/default${i%x*}.png 644 \
+			usr/share/icons/hicolor/${i}/apps zen-browser.png
+	done
+  # Copy zen-browser.desktop
+	vinstall "$FILESDIR/zen-browser.desktop" 644 usr/share/applications
+}
