@@ -1,6 +1,6 @@
 # Template file for 'zen-browser'
 pkgname=zen-browser
-version=1.17.3b
+version=1.17.12b
 revision=1
 archs="x86_64 aarch64"
 hostmakedepends="tar xz"
@@ -13,10 +13,10 @@ depends="nss>=3.72 nspr>=4.32 desktop-file-utils hicolor-icon-theme pciutils"
 
 case "$XBPS_TARGET_MACHINE" in
 	x86_64)
-		checksum="af6769492f8179f30d681c17777de1da79a6b1a44c97a1cb6a0340d497b19eb7"
+		checksum="cae97299622a6ef3fd8c06ff3494f8625094467ac5ac48ee63a81a0ac67fa14d"
 		;;
 	aarch64)
-		checksum="f483fe8898fc39afcc236f0203ce1f8fc84aad35d2bfd1219a0548474fb238fd"
+		checksum="b45f4389872999ae93eba2dd10323208010bcfb87f70bf2a5272074a71885d3b"
 		;;
 esac
 
